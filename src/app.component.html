@@ -1,0 +1,12 @@
+<h3>{{ author }}</h3>
+<div class="body">
+  @for(character of characters$ | async; track $index) {
+  <app-people
+    [order]="$index"
+    [isExpanded]="$index === expandedIndex"
+    [character]="character"
+    (onExpand)="onExpand($event)"
+  ></app-people>
+  }
+  <div></div>
+</div>

@@ -1,0 +1,29 @@
+@if(_character) {
+<div class="container">
+  <div class="card-header" (click)="toggleBody()">
+    <span>{{ _character.name }}</span>
+    <span class="expand-collapse material-symbols-outlined">
+      {{ _isExpanded ? 'keyboard_arrow_up' : 'keyboard_arrow_down' }}
+    </span>
+  </div>
+  @if(_isExpanded) {
+  <div class="card-body">
+    <div class="basic-details">
+      <h4>BASICS</h4>
+      <span>Height: {{ _character.height }}</span>
+      <span>Gender: {{ _character.gender }}</span>
+      <span>Birth Year: {{ _character.birth_year }}</span>
+    </div>
+
+    <div>
+      <h4>MOVIES</h4>
+      <ul>
+        @for(movie of _character.films; track $index) {
+        <li>{{ movie }}</li>
+        }
+      </ul>
+    </div>
+  </div>
+  }
+</div>
+}
